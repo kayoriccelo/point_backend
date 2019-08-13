@@ -45,6 +45,9 @@ TERCEIROS_APPS = [
 
 APLICACAO_APPS = [
     'apps.usuarios',
+    'apps.empresa',
+    'apps.jornadas',
+    'apps.funcionarios',
 ]
 
 INSTALLED_APPS = DJANGO_APPSS + TERCEIROS_APPS + APLICACAO_APPS
