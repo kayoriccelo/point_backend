@@ -41,6 +41,7 @@ DJANGO_APPSS = [
 
 TERCEIROS_APPS = [
     'rest_framework',
+    'corsheaders',
 ]
 
 APLICACAO_APPS = [
@@ -55,6 +56,7 @@ INSTALLED_APPS = DJANGO_APPSS + TERCEIROS_APPS + APLICACAO_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -157,3 +159,10 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'apps.base.pagination.PageNumberPagination',
     'PAGE_SIZE': 20
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:8000",
+    "http://127.0.0.1:8000"
+]
