@@ -10,4 +10,5 @@ class JornadaViewSet(viewsets.ModelViewSet):
     queryset = Jornada.objects.all()
     serializer_class = JornadaSerializer
     filter_backends = (filters.SearchFilter, DjangoFilterBackend)
+    filter_fields = ('id',)
     search_fields = ('descricao', 'codigo',)

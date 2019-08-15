@@ -10,4 +10,5 @@ class FuncionarioViewSet(viewsets.ModelViewSet):
     queryset = Funcionario.objects.all()
     serializer_class = FuncionarioSerializer
     filter_backends = (filters.SearchFilter, DjangoFilterBackend)
+    filter_fields = ('id',)
     search_fields = ('nome', 'cpf',)
