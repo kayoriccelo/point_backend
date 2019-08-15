@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Jornada, DiaTrabalhado
+from .models import Jornada
 
 
 admin.site.register(Jornada)
-admin.site.register(DiaTrabalhado)
