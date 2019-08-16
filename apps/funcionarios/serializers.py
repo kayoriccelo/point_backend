@@ -69,7 +69,7 @@ class FuncionarioSerializer(serializers.ModelSerializer):
             usuario.set_password(validated_data['new_password'])
             usuario.save()
         except:
-            raise serializers.ValidationError({'error': 'Error ao salvar usuario. ' + e})
+            raise serializers.ValidationError({'error': 'Error ao salvar usuario. '})
 
         try:
             funcionario = Funcionario()

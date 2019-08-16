@@ -8,11 +8,11 @@ from apps.marcacao.models import Marcacao
 
 
 class BatidaSerializer(serializers.Serializer):
-
     def validate(self, attrs):
 
         try:
-            attrs['funcionario'] = Funcionario.objects.get(cpf=self.context['request']['cpf'])
+            attrs['funcionario'] = Funcionario.objects.get(cpf=self.context['request']['cpf'],
+                                                           empresa__funcionarios__user__cpf=self.context['user'].cpf)
         except:
             raise serializers.ValidationError({'error': 'Cpf não cadastrado.'})
 
