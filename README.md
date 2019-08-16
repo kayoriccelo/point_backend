@@ -14,8 +14,8 @@
         - Fonte de pesquisa:
             -> https://tutorial.djangogirls.org/pt/django_installation/
         
-    + Requirements
+    + Instalando dependências 
         - pip install requirements.txt
 
-    + Executar
+    + Iniciando Serviço:
         - python manage.py runserver
