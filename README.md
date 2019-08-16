@@ -5,17 +5,17 @@
 
     + Virtualenv
         - Instalação:
-            -> sudo apt install python3.7-venv	
+            -> sudo apt install python3-venv	
             -> sudo apt install python-virtualenv
         - Criando ambiente:
-            -> virtualenv --python=python3.7 ponto_venv
+            -> sudo virtualenv --python=python3.7 ponto_venv
         - Ativando ambiente:
             -> source ponto_venv/bin/activate
         - Fonte de pesquisa:
             -> https://tutorial.djangogirls.org/pt/django_installation/
         
     + Instalando dependências 
-        - pip install requirements.txt
+        - pip install -r requirements.txt
 
     + Iniciando Serviço:
         - python manage.py runserver
