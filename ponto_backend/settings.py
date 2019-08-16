@@ -49,6 +49,7 @@ APLICACAO_APPS = [
     'apps.empresa',
     'apps.jornadas',
     'apps.funcionarios',
+    'apps.marcacao',
 ]
 
 INSTALLED_APPS = DJANGO_APPSS + TERCEIROS_APPS + APLICACAO_APPS

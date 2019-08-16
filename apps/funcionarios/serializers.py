@@ -8,6 +8,7 @@ from .models import Funcionario
 class FuncionarioSerializer(serializers.ModelSerializer):
     email = serializers.CharField(source='user.email')
     username = serializers.CharField(source='user.username')
+    jornada_display = serializers.CharField(source='jornada.descricao')
 
     class Meta:
         model = Funcionario
