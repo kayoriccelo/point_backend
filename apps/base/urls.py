@@ -11,13 +11,13 @@ from apps.batidas.viewsets import BatidaViewSet
 
 router = DefaultRouter()
 router.register(r'usuarios', UsuarioViewSet, base_name='usuario')
-router.register(r'empresa', EmpresaViewSet, base_name='empresa')
-router.register(r'funcionarios', FuncionarioViewSet, base_name='funcionario')
-router.register(r'jornadas', JornadaViewSet, base_name='jornada')
-router.register(r'marcacoes', MarcacaoViewSet, base_name='marcacao')
+router.register(r'company', EmpresaViewSet, base_name='company')
+router.register(r'employee', FuncionarioViewSet, base_name='employee')
+router.register(r'journey', JornadaViewSet, base_name='journey')
+router.register(r'pointmarking', MarcacaoViewSet, base_name='pointmarking')
 
 urlpatterns = router.urls
 
 urlpatterns += [
-    url(r'^batidas/', BatidaViewSet.as_view()),
+    url(r'^consultpoint/', BatidaViewSet.as_view()),
 ]
