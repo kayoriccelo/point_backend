@@ -45,11 +45,11 @@ TERCEIROS_APPS = [
 ]
 
 APLICACAO_APPS = [
-    'apps.usuarios',
-    'apps.empresa',
-    'apps.jornadas',
-    'apps.funcionarios',
-    'apps.marcacao',
+    'apps.user_custom',
+    'apps.company',
+    'apps.journey',
+    'apps.employee',
+    'apps.point_marking',
 ]
 
 INSTALLED_APPS = DJANGO_APPSS + TERCEIROS_APPS + APLICACAO_APPS
@@ -115,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'usuarios.Usuario'
+AUTH_USER_MODEL = 'user_custom.UserCustom'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -157,7 +157,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
-    'DEFAULT_PAGINATION_CLASS': 'apps.base.pagination.PageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'apps.core.pagination.PageNumberPagination',
     'PAGE_SIZE': 20
 }
 
