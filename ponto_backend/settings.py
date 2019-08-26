@@ -26,7 +26,7 @@ SECRET_KEY = 'u4yt*$x6+l=i*lan_jp(dqr1z$h%@r5fab&5k%8v1&z&c)q=2f'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "https://apieletronicpoint.herokuapp.com",
+    "apieletronicpoint.herokuapp.com",
 ]
 
 # Application definition
