@@ -42,6 +42,7 @@ DJANGO_APPSS = [
 TERCEIROS_APPS = [
     'rest_framework',
     'corsheaders',
+    'django_filters',
 ]
 
 APLICACAO_APPS = [
@@ -158,7 +159,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_PAGINATION_CLASS': 'apps.core.pagination.PageNumberPagination',
-    'PAGE_SIZE': 20
+    'PAGE_SIZE': 10
 }
 
 CORS_ORIGIN_ALLOW_ALL = True

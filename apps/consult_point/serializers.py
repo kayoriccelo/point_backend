@@ -37,7 +37,7 @@ class ConsultPointSerializer(serializers.Serializer):
         points_filter = points.filter(type=type_marking)
 
         if points_filter.count() > 0:
-            return points_filter.first().hour
+            return str(points_filter.first().hour)[0:5]
 
         return '-'
 
@@ -52,12 +52,12 @@ class ConsultPointSerializer(serializers.Serializer):
             f'{journey.interval_output} / {journey.return_interval} / {journey.leave}`'
         ret['points'] = []
 
-        for item_data in self.daterange(datetime.strptime(data['start'], '%Y-%m-%d').date(),
+        for item_date in self.daterange(datetime.strptime(data['start'], '%Y-%m-%d').date(),
                                         datetime.strptime(data['end'], '%Y-%m-%d').date()):
-            points = PointMarking.objects.filter(employee=data['employee'], data=item_data)
+            points = PointMarking.objects.filter(employee=data['employee'], date=item_date)
 
             point_dict = OrderedDict()
-            point_dict['data'] = item_data.strftime('%d/%m/%Y')
+            point_dict['date'] = item_date.strftime('%d/%m/%Y')
             point_dict['entry'] = self.get_point_marking(points, 'E')
             point_dict['interval_output'] = self.get_point_marking(points, 'SI')
             point_dict['return_interval'] = self.get_point_marking(points, 'R')

@@ -48,8 +48,8 @@ class EmployeeSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError({'error': 'Password not informed.'})
 
         try:
-            data['company'] = Employee.objects.get(cpf=self.context['request'].user.cpf).company
-        except Employee.DoesNotExist:
+            data['company'] = UserCustom.objects.get(cpf=self.context['request'].user.cpf).company
+        except UserCustom.DoesNotExist:
             raise serializers.ValidationError({'error': 'Company not found.'})
 
         try:

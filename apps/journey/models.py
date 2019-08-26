@@ -17,4 +17,4 @@ class Journey(models.Model):
         verbose_name = _('journey')
         verbose_name_plural = _('journeys')
         db_table = 'journey'
-        ordering = ['description', ]
+        ordering = ['code', 'description', ]

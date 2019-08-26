@@ -1,0 +1,1 @@
+web: gunicorn ponto_backend.wsgi --log-file -
