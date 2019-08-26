@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'u4yt*$x6+l=i*lan_jp(dqr1z$h%@r5fab&5k%8v1&z&c)q=2f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = off
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "apieletronicpoint.herokuapp.com",
