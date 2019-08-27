@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from apps.user_custom.models import UserCustom
+from apps.employee.models import Employee
 from .models import Journey
 
 
@@ -17,8 +17,8 @@ class JourneySerializer(serializers.ModelSerializer):
         data = self.context['request'].data
 
         try:
-            data['company'] = UserCustom.objects.get(cpf=self.context['request'].user.cpf).company
-        except UserCustom.DoesNotExist:
+            data['company'] = Employee.objects.get(cpf=self.context['request'].user.cpf).company
+        except Employee.DoesNotExist:
             raise serializers.ValidationError({'error': 'Company not found.'})
 
         return super(JourneySerializer, self).validate(attrs)

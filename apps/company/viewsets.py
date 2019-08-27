@@ -15,7 +15,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
     filter_class = CompanyFilter
 
     def get_queryset(self):
-        company = Company.objects.filter(users__cpf=self.request._user.cpf)
+        company = Company.objects.filter(employees__cpf=self.request._user.cpf)
         return company
 
     def list(self, request, *args, **kwargs):

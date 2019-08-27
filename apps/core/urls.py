@@ -6,7 +6,7 @@ from apps.company.viewsets import CompanyViewSet
 from apps.employee.viewsets import EmployeeViewSet
 from apps.journey.viewsets import JourneyViewSet
 from apps.consult_point.viewsets import ConsultPointViewSet
-from apps.user_custom.viewsets import UserCustomViewSet
+from apps.user_custom.viewsets import UserCustomViewSet, UserCustomTokenViewSet
 
 router = DefaultRouter()
 router.register(r'company', CompanyViewSet, base_name='company')
@@ -14,6 +14,7 @@ router.register(r'employee', EmployeeViewSet, base_name='employee')
 router.register(r'journey', JourneyViewSet, base_name='journey')
 router.register(r'pointmarking', PointMarkingViewSet, base_name='pointmarking')
 router.register(r'user', UserCustomViewSet, base_name='user')
+router.register(r'usertoken', UserCustomTokenViewSet, base_name='usertoken')
 
 urlpatterns = router.urls
 

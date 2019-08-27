@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 from rest_framework import serializers
 
 from .models import UserCustom
@@ -47,3 +49,11 @@ class UserCustomSerializer(serializers.Serializer):
             raise serializers.ValidationError({'non_field_errors': [u'Unable to register a new account. ']})
 
         return usuario
+
+    def to_representation(self, instance):
+        ret = OrderedDict()
+        if instance:
+            ret['cpf'] = instance.cpf
+            ret['name'] = instance.first_name + ' ' + instance.last_name
+            ret['role'] = 'admin' if instance.is_admin else 'guest'
+        return ret

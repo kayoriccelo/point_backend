@@ -9,3 +9,13 @@ class UserCustomViewSet(viewsets.GenericViewSet, mixins.CreateModelMixin):
     queryset = UserCustom.objects.all()
     serializer_class = UserCustomSerializer
     permission_classes = (AllowAny,)
+
+
+class UserCustomTokenViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = UserCustom.objects.all()
+    serializer_class = UserCustomSerializer
+
+    def get_queryset(self):
+        user = UserCustom.objects.filter(cpf=self.request.user.cpf)
+
+        return user
