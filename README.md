@@ -15,7 +15,7 @@
             -> https://tutorial.djangogirls.org/pt/django_installation/
         
     + Instalando dependências 
-        - sudo chmod 777 -R ponto_backend
+        - sudo chmod 777 -R point_backend
         - pip install -r requirements.txt
 
     + Iniciando Serviço:

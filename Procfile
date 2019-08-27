@@ -1,1 +1,1 @@
-web: gunicorn ponto_backend.wsgi --log-file -
+web: gunicorn point_backend.wsgi --log-file -
