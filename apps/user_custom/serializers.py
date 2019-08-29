@@ -56,4 +56,5 @@ class UserCustomSerializer(serializers.Serializer):
             ret['cpf'] = instance.cpf
             ret['name'] = instance.first_name + ' ' + instance.last_name
             ret['role'] = 'admin' if instance.is_admin else 'guest'
+            ret['isAuthenticated'] = True
         return ret
