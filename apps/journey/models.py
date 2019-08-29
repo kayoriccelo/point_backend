@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 class Journey(models.Model):
     code = models.CharField(_('code'), max_length=10)
-    description = models.CharField(_('description'), max_length=300)
+    description = models.CharField(_('description'), max_length=140)
     entry = models.TimeField(_('entry'), null=True, blank=True)
     interval_output = models.TimeField(_('interval output'), null=True, blank=True)
     return_interval = models.TimeField(_('return interval'), null=True, blank=True)

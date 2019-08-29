@@ -6,8 +6,6 @@ from .models import Employee
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
-    email = serializers.CharField(source='user.email')
-    username = serializers.CharField(source='user.username')
     journey_display = serializers.CharField(source='journey.description')
 
     class Meta:
@@ -21,7 +19,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
         data = self.context['request'].data
 
         if not 'cpf' in data or not data['cpf']:
-            raise serializers.ValidationError({'error': 'Cpf not informed.'})
+            raise serializers.ValidationError('Cpf not informed.')
 
         try:
             data['user'] = UserCustom.objects.get(cpf=data['cpf'])
@@ -29,20 +27,20 @@ class EmployeeSerializer(serializers.ModelSerializer):
             data['user'] = None
 
         if not 'name' in data or not data['name']:
-            raise serializers.ValidationError({'error': 'Name not informed.'})
+            raise serializers.ValidationError('Name not informed.')
 
         if not 'journey' in data or not data['journey']:
-            raise serializers.ValidationError({'error': 'Journey not informed.'})
+            raise serializers.ValidationError('Journey not informed.')
 
         try:
             data['company'] = Employee.objects.get(cpf=self.context['request'].user.cpf).company
         except UserCustom.DoesNotExist:
-            raise serializers.ValidationError({'error': 'Company not found.'})
+            raise serializers.ValidationError('Company not found.')
 
         try:
             data['journey'] = Journey.objects.get(id=data['journey'])
         except Journey.DoesNotExist:
-            raise serializers.ValidationError({'error': 'Journey not found.'})
+            raise serializers.ValidationError('Journey not found.')
 
         return data
 
@@ -56,7 +54,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
             employee.user = validated_data['user']
             employee.save()
         except:
-            raise serializers.ValidationError({'error': 'Unable to save employee.'})
+            raise serializers.ValidationError({'non_field_errors': 'Unable to save employee.'})
 
         return employee
 
@@ -68,6 +66,6 @@ class EmployeeSerializer(serializers.ModelSerializer):
             instance.user = validated_data['user']
             instance.save()
         except:
-            raise serializers.ValidationError({'error': 'Unable to save employee.'})
+            raise serializers.ValidationError({'non_field_errors': 'Unable to save employee.'})
 
         return instance
