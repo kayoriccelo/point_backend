@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from rest_framework.routers import DefaultRouter
 
+from apps.dashboard.viewsets import DashboardViewSet
 from apps.point_marking.viewsets import PointMarkingViewSet
 from apps.company.viewsets import CompanyViewSet
 from apps.employee.viewsets import EmployeeViewSet
@@ -20,4 +21,5 @@ urlpatterns = router.urls
 
 urlpatterns += [
     url(r'^consultpoint/', ConsultPointViewSet.as_view()),
+    url(r'^dashboard/', DashboardViewSet.as_view(), name='dashboard'),
 ]
