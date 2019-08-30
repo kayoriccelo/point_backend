@@ -65,9 +65,9 @@ class ConsultPointSerializer(serializers.Serializer):
             point_dict = OrderedDict()
             point_dict['date'] = item_date.strftime('%d/%m/%Y')
             point_dict['entry'] = self.get_point_marking(points, 'E')
-            point_dict['interval_output'] = self.get_point_marking(points, 'SI')
-            point_dict['return_interval'] = self.get_point_marking(points, 'R')
-            point_dict['leave'] = self.get_point_marking(points, 'S')
+            point_dict['interval_output'] = self.get_point_marking(points, 'IO')
+            point_dict['return_interval'] = self.get_point_marking(points, 'RI')
+            point_dict['leave'] = self.get_point_marking(points, 'L')
 
             ret['points'].append(point_dict)
 
