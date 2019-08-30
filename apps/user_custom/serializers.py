@@ -58,3 +58,39 @@ class UserCustomSerializer(serializers.Serializer):
             ret['role'] = 'admin' if instance.is_admin else 'guest'
             ret['isAuthenticated'] = True
         return ret
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = UserCustom
+        fields = ('id', 'first_name', 'last_name')
+
+    def validate(self, attrs):
+
+        if not 'new_password' in self.context['request'].data:
+            raise serializers.ValidationError(u'New Password not informed.')
+
+        if not 'password' in self.context['request'].data:
+            raise serializers.ValidationError(u'Password not informed.')
+
+        if not self.context['request'].user.check_password(self.context['request'].data['password']):
+            raise serializers.ValidationError(u'Password invalid.')
+
+        if not 'new_password' in self.context['request'].data:
+            raise serializers.ValidationError(u'New Password not informed.')
+
+        attrs['new_password'] = self.context['request'].data['new_password']
+
+        return attrs
+
+    def update(self, instance, validated_data):
+        try:
+            instance.first_name = validated_data['first_name']
+            instance.last_name = validated_data['last_name']
+            instance.set_password(validated_data['new_password'])
+            instance.save()
+        except Exception as e:
+            raise serializers.ValidationError({'non_field_errors': [u'Unable to save profile. ']})
+
+        return instance

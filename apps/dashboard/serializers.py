@@ -10,16 +10,16 @@ class DashboardSerializer(serializers.Serializer):
 
     def incrementa_item(self, field, values, label):
         colors = [
-            'fill-color: rgb(124, 181, 236); fill-opacity: 0.6;',
-            'fill-color: rgb(0, 134, 64); fill-opacity: 0.6;',
-            'fill-color: rgb(247, 163, 92); fill-opacity: 0.6;',
-            'fill-color: rgb(144, 237, 125); fill-opacity: 0.6;',
-            'fill-color: rgb(128, 133, 233); fill-opacity: 0.6;',
-            'fill-color: rgb(241, 92, 128); fill-opacity: 0.6;',
-            'fill-color: rgb(228, 211, 84); fill-opacity: 0.6;',
-            'fill-color: rgb(43, 144, 143); fill-opacity: 0.6;',
-            'fill-color: rgb(244, 91, 91); fill-opacity: 0.6;',
-            'fill-color: rgb(145, 232, 225); fill-opacity: 0.6;'
+            'fill-color: #0a2910; fill-opacity: 0.7;',
+            'fill-color: #155121; fill-opacity: 0.7;',
+            'fill-color: #1a6529; fill-opacity: 0.7;',
+            'fill-color: #258e3a; fill-opacity: 0.7;',
+            'fill-color: #2fb64a; fill-opacity: 0.7;',
+            'fill-color: #49d064; fill-opacity: 0.7;',
+            'fill-color: #71da86; fill-opacity: 0.7;',
+            'fill-color: #9ae5a9; fill-opacity: 0.7;',
+            'fill-color: #c2efcb; fill-opacity: 0.7;',
+            'fill-color: #ebfaee; fill-opacity: 0.7;',
         ]
 
         ret = [["Element", label, {"role": "style"}, {"role": "style"}]]
