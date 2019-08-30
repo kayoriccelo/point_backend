@@ -11,8 +11,14 @@ class ConsultPointSerializer(serializers.Serializer):
     def validate(self, attrs):
 
         try:
-            attrs['employee'] = Employee.objects.get(cpf=self.context['request']['cpf'],
-                                                     company__employees__user__cpf=self.context['user'].cpf)
+            company = Employee.objects.get(cpf=self.context['user'].cpf).company
+        except:
+            raise serializers.ValidationError({'error': 'Employee not registered at company.'})
+
+        cpf = self.context['request']['cpf'] if 'cpf' in self.context['request'] else self.context['user'].cpf
+
+        try:
+            attrs['employee'] = Employee.objects.get(cpf=cpf, company=company)
         except:
             raise serializers.ValidationError({'error': 'Cpf not registered.'})
 
