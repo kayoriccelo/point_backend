@@ -1,2 +1,4 @@
 .idea/
 staticfiles/
+__pycache/
+__pycache__/
