@@ -1,4 +1,7 @@
 # Eletronic Point
+   Aplicação onde controla as entradas e saídas de cada funcionário de uma empresa.
+    
+   ### Instalação do projeto
     + Python3.7
         - Fonte de pesquisa:
             -> https://linuxize.com/post/how-to-install-python-3-7-on-ubuntu-18-04/
